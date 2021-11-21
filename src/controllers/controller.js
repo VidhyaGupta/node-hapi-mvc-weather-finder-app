@@ -1,6 +1,6 @@
 const Axios = require('axios')
 const env =require('node-env-file')
-env('../.env')
+env('.env')
 
 const API_KEY = process.env.API_KEY
 
