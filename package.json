@@ -2,7 +2,10 @@
   "name": "hapi-mvc-app",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "app.js",
+  "engines": {
+  "node": "14.17.6"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
