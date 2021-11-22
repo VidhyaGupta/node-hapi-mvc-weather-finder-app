@@ -2,13 +2,13 @@
 
 const Path = require('path')
 const Hapi = require('@hapi/hapi')
-var Routes = require('./routes');
+var Routes = require('./src/routes');
 const env =require('node-env-file')
 env('.env')
 
 const init = async() => {
     const server = Hapi.server( {
-       port : process.env.PORT,
+       port : process.env.PORT || 5000,
        host: 'localhost' 
     })
 
@@ -22,7 +22,7 @@ const init = async() => {
         engines: {
             hbs: require('handlebars')
         },
-        path: Path.join(__dirname, '../views')
+        path: Path.join(__dirname, 'views')
     })
 
     await server.start()
