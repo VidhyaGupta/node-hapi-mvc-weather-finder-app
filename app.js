@@ -3,8 +3,6 @@
 const Path = require('path')
 const Hapi = require('@hapi/hapi')
 var Routes = require('./src/routes')
-const env = require('node-env-file')
-env('.env')
 
 const init = async() => {
     const server = Hapi.server( {
