@@ -15,16 +15,25 @@ exports.getWeather =  async (request, h) => {
     const url= `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     const weather = new Weather(city)
     weather.validateUserInput()
+    
     if (weather.errors.length){
         return h.view('index',{
             error: weather.errors.toString()
         })
     } else {
         const weatherfunc = async ()=> {
-            const response = await Axios.get(url);
-            const {temp : temperature} = response.data.main
-            const {name : location} = response.data
-            return `It is currently ${temperature} °C in ${location}.`;
+
+            try {
+                const response = await Axios.get(url);
+                console.log(response)
+                const {temp : temperature} = response.data.main
+                const {name : location} = response.data
+                return `It is currently ${temperature} °C in ${location}.`;
+              } catch(err) {
+                return err.response.data.message;
+              }
+
+            
         }
       return h.view('index',{
           weather: await weatherfunc()
