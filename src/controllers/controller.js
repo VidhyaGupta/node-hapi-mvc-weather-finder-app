@@ -1,7 +1,8 @@
 const Axios = require('axios')
 
-// const env =require('node-env-file')    
-// env('.env')
+//commernt import of env module for deploying on heroku
+const env =require('node-env-file')    
+env('.env')
 
 const API_KEY = process.env.API_KEY
 
