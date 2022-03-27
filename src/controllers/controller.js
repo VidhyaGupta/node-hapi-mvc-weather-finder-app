@@ -1,6 +1,6 @@
 const Axios = require('axios')
 
-//commernt import of env module for deploying on heroku
+//comment import of env module for deploying on heroku
 const env =require('node-env-file')    
 env('.env')
 
